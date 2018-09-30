@@ -20,7 +20,7 @@ STREAM_BPMS_63="https://raw.githubusercontent.com/openshift/openshift-ansible/ma
 STREAM_BPMS_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-streams/processserver64-image-stream.json"
 STREAM_DOTNET="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/image-streams/dotnet_imagestreams.json"
 STREAM_RHEL="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/image-streams/image-streams-rhel7.json"
-#TEMPLATE_EAP70="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/eap70-basic-s2i.json"
+TEMPLATE_EAP70="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/eap71-basic-s2i.json"
 TEMPLATE_EAP71="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/eap71-basic-s2i.json"
 TEMPLATE_BRMS_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/decisionserver64-basic-s2i.json"
 TEMPLATE_BPM_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/processserver64-postgresql-s2i.json"
@@ -28,9 +28,9 @@ TEMPLATE_BPM_DB_64="https://raw.githubusercontent.com/openshift/openshift-ansibl
 
 # uncomment amount memory needed, sets RAM usage limit for OCP, default 6 GB.
 #VM_MEMORY=10240    # 10GB
-#VM_MEMORY=8192    # 8GB
+VM_MEMORY=9000    # 8GB
 #VM_MEMORY=6144     # 6GB
-VM_MEMORY=4098     # 4GB
+#VM_MEMORY=4098     # 4GB
 #VM_MEMORY=3072     # 3GB
 
 # wipe screen.
@@ -97,24 +97,24 @@ vertwo=$(echo $verfull | awk -F[=.] '{print $2}')
 verthree=$(echo $verfull | awk -F[=.] '{print $3}')
 
 # Check version elements, first is a string so using '==', the rest are integers.
-if [ $verone == $OC_MAJOR_VER ] && [ $vertwo -eq $OC_MINOR_VER ] && [ $verthree -ge $OC_MINI_VER ]; then
-	echo "Version of installed OpenShift command line tools correct... $verone.$vertwo.$verthree"
-	echo
-else
-	echo "Version of installed OpenShift command line tools is $verone.$vertwo.$verthree, must be $OC_MAJOR_VER.$OC_MINOR_VER.$OC_MINI_VER..."
-	echo
-	if [ `uname` == 'Darwin' ]; then
-		echo "Download for Mac here: https://access.redhat.com/downloads/content/290"
-		exit
-	else
-		echo "Download for Linux here: https://access.redhat.com/downloads/content/290/"
-		exit
-	fi
-fi
+#if [ $verone == $OC_MAJOR_VER ] && [ $vertwo -eq $OC_MINOR_VER ] && [ $verthree -ge $OC_MINI_VER ]; then
+#	echo "Version of installed OpenShift command line tools correct... $verone.$vertwo.$verthree"
+#	echo
+#else
+#	echo "Version of installed OpenShift command line tools is $verone.$vertwo.$verthree, must be $OC_MAJOR_VER.$OC_MINOR_VER.$OC_MINI_VER..."
+#	echo
+#	if [ `uname` == 'Darwin' ]; then
+#		echo "Download for Mac here: https://access.redhat.com/downloads/content/290"
+#		exit
+#	else
+#		echo "Download for Linux here: https://access.redhat.com/downloads/content/290/"
+#		exit
+#	fi
+#fi
 
 echo "Setting up OpenShift docker machine using $VIRT_DRIVER from cache..."
 echo
-docker-machine create --driver ${VIRT_DRIVER} --${VIRT_DRIVER}-cpu-count "2" --${VIRT_DRIVER}-memory "$VM_MEMORY" --engine-insecure-registry 172.30.0.0/16 --${VIRT_DRIVER}-boot2docker-url $ISO_CACHE openshift 
+docker-machine create --driver ${VIRT_DRIVER} --${VIRT_DRIVER}-cpu-count "2" --${VIRT_DRIVER}-memory "$VM_MEMORY" --engine-insecure-registry 172.30.0.0/16 --${VIRT_DRIVER}-boot2docker-url $ISO_CACHE openshift
 
 if [ $? -ne 0 ]; then
 		echo
@@ -307,26 +307,26 @@ fi
 
 # Updating JBoss EAP 7.0 image stream.
 #
-# oc delete -n openshift -f $STREAM_EAP_70 >/dev/null 2>&1
-#oc create -n openshift -f $STREAM_EAP_70
+oc delete -n openshift -f $STREAM_EAP_70 >/dev/null 2>&1
+oc create -n openshift -f $STREAM_EAP_70
 
-#if [ $? -ne 0 ]; then
-#	echo
-#	echo "Problem with accessing JBoss EAP 70 stream for OCP..."
-#	echo
-#  echo "Trying again..."
-#	echo
-#	sleep 10
-# oc delete -n openshift -f $STREAM_EAP_70 >/dev/null 2>&1
-#  oc create -n openshift -f $STREAM_EAP_70
+if [ $? -ne 0 ]; then
+	echo
+	echo "Problem with accessing JBoss EAP 70 stream for OCP..."
+	echo
+  echo "Trying again..."
+	echo
+	sleep 10
+  oc delete -n openshift -f $STREAM_EAP_70 >/dev/null 2>&1
+  oc create -n openshift -f $STREAM_EAP_70
 	
-#	if [ $? -ne 0 ]; then
-#		echo "Failed again, exiting, check output messages and network connectivity before running install again..."
-#		echo
-#		docker-machine rm -f openshift
-#		exit
-#	fi
-#fi
+	if [ $? -ne 0 ]; then
+		echo "Failed again, exiting, check output messages and network connectivity before running install again..."
+		echo
+		docker-machine rm -f openshift
+		exit
+	fi
+fi
 
 # Updating JBoss EAP 7.1 image stream.
 oc delete -n openshift -f $STREAM_EAP_71 >/dev/null 2>&1
