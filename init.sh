@@ -3,28 +3,28 @@
 DOCKER_MAJOR_VER=17
 DOCKER_MINOR_VER=06
 OC_MAJOR_VER="v3"
-OC_MINOR_VER=9
-OC_MINI_VER=14
+OC_MINOR_VER=7
+OC_MINI_VER=9
 OCP_VERSION="$OC_MAJOR_VER.$OC_MINOR_VER"
 ISO_URL="https://github.com/boot2docker/boot2docker/releases/download/v1.13.1/boot2docker.iso"
 ISO_CACHE="file://$HOME/.docker/machine/cache/boot2docker.iso"
 VIRT_DRIVER="virtualbox"
-STREAM_BRMS_63="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-streams/decisionserver63-image-stream.json"
-STREAM_BRMS_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-streams/decisionserver64-image-stream.json"
-STREAM_EAP_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-streams/eap64-image-stream.json"
-STREAM_EAP_70="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-streams/eap70-image-stream.json"
-STREAM_EAP_71="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-streams/eap71-image-stream.json"
-STREAM_FUSE="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-streams/fis-image-streams.json"
-STREAM_OPENJDK18="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-streams/openjdk18-image-stream.json"
-STREAM_BPMS_63="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-streams/processserver63-image-stream.json"
-STREAM_BPMS_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-streams/processserver64-image-stream.json"
-STREAM_DOTNET="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/image-streams/dotnet_imagestreams.json"
-STREAM_RHEL="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/image-streams/image-streams-rhel7.json"
-TEMPLATE_EAP70="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-templates/eap70-basic-s2i.json"
-TEMPLATE_EAP71="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-templates/eap71-basic-s2i.json"
-TEMPLATE_BRMS_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-templates/decisionserver64-basic-s2i.json"
-TEMPLATE_BPM_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-templates/processserver64-postgresql-s2i.json"
-TEMPLATE_BPM_DB_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/v3.10/xpaas-templates/processserver64-postgresql-persistent-s2i.json"
+STREAM_BRMS_63="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-streams/decisionserver63-image-stream.json"
+STREAM_BRMS_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-streams/decisionserver64-image-stream.json"
+STREAM_EAP_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-streams/eap64-image-stream.json"
+STREAM_EAP_70="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-streams/eap70-image-stream.json"
+STREAM_EAP_71="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-streams/eap71-image-stream.json"
+STREAM_FUSE="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-streams/fis-image-streams.json"
+STREAM_OPENJDK18="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-streams/openjdk18-image-stream.json"
+STREAM_BPMS_63="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-streams/processserver63-image-stream.json"
+STREAM_BPMS_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-streams/processserver64-image-stream.json"
+STREAM_DOTNET="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/image-streams/dotnet_imagestreams.json"
+STREAM_RHEL="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/image-streams/image-streams-rhel7.json"
+#TEMPLATE_EAP70="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/eap70-basic-s2i.json"
+TEMPLATE_EAP71="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/eap71-basic-s2i.json"
+TEMPLATE_BRMS_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/decisionserver64-basic-s2i.json"
+TEMPLATE_BPM_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/processserver64-postgresql-s2i.json"
+TEMPLATE_BPM_DB_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/processserver64-postgresql-persistent-s2i.json"
 
 # uncomment amount memory needed, sets RAM usage limit for OCP, default 6 GB.
 #VM_MEMORY=10240    # 10GB
@@ -307,26 +307,26 @@ fi
 
 # Updating JBoss EAP 7.0 image stream.
 #
-oc delete -n openshift -f $STREAM_EAP_70 >/dev/null 2>&1
-oc create -n openshift -f $STREAM_EAP_70
+# oc delete -n openshift -f $STREAM_EAP_70 >/dev/null 2>&1
+#oc create -n openshift -f $STREAM_EAP_70
 
-if [ $? -ne 0 ]; then
-	echo
-	echo "Problem with accessing JBoss EAP 70 stream for OCP..."
-	echo
-  echo "Trying again..."
-	echo
-	sleep 10
-  oc delete -n openshift -f $STREAM_EAP_70 >/dev/null 2>&1
-  oc create -n openshift -f $STREAM_EAP_70
+#if [ $? -ne 0 ]; then
+#	echo
+#	echo "Problem with accessing JBoss EAP 70 stream for OCP..."
+#	echo
+#  echo "Trying again..."
+#	echo
+#	sleep 10
+# oc delete -n openshift -f $STREAM_EAP_70 >/dev/null 2>&1
+#  oc create -n openshift -f $STREAM_EAP_70
 	
-	if [ $? -ne 0 ]; then
-		echo "Failed again, exiting, check output messages and network connectivity before running install again..."
-		echo
-		docker-machine rm -f openshift
-		exit
-	fi
-fi
+#	if [ $? -ne 0 ]; then
+#		echo "Failed again, exiting, check output messages and network connectivity before running install again..."
+#		echo
+#		docker-machine rm -f openshift
+#		exit
+#	fi
+#fi
 
 # Updating JBoss EAP 7.1 image stream.
 oc delete -n openshift -f $STREAM_EAP_71 >/dev/null 2>&1
