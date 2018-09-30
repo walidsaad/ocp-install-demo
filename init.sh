@@ -3,7 +3,7 @@
 DOCKER_MAJOR_VER=17
 DOCKER_MINOR_VER=06
 OC_MAJOR_VER="v3"
-OC_MINOR_VER=7
+OC_MINOR_VER=9
 OC_MINI_VER=9
 OCP_VERSION="$OC_MAJOR_VER.$OC_MINOR_VER"
 ISO_URL="https://github.com/boot2docker/boot2docker/releases/download/v1.13.1/boot2docker.iso"
