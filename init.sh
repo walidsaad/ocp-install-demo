@@ -20,7 +20,7 @@ STREAM_BPMS_63="https://raw.githubusercontent.com/openshift/openshift-ansible/ma
 STREAM_BPMS_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-streams/processserver64-image-stream.json"
 STREAM_DOTNET="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/image-streams/dotnet_imagestreams.json"
 STREAM_RHEL="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/image-streams/image-streams-rhel7.json"
-TEMPLATE_EAP70="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/eap71-basic-s2i.json"
+#TEMPLATE_EAP70="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/eap71-basic-s2i.json"
 TEMPLATE_EAP71="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/eap71-basic-s2i.json"
 TEMPLATE_BRMS_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/decisionserver64-basic-s2i.json"
 TEMPLATE_BPM_64="https://raw.githubusercontent.com/openshift/openshift-ansible/master/roles/openshift_examples/files/examples/latest/xpaas-templates/processserver64-postgresql-s2i.json"
@@ -397,26 +397,26 @@ fi
 
 # Updating EAP 7.0 template.
 #
-oc delete -n openshift -f $TEMPLATE_EAP70 >/dev/null 2>&1
-oc create -n openshift -f $TEMPLATE_EAP70
+#oc delete -n openshift -f $TEMPLATE_EAP70 >/dev/null 2>&1
+#oc create -n openshift -f $TEMPLATE_EAP70
 
-if [ $? -ne 0 ]; then
-	echo
-	echo "Problem with accessing JBoss EAP 70 template for OCP..."
-	echo
-  echo "Trying again..."
-	echo
-	sleep 10
-	oc delete -n openshift -f $TEMPLATE_EAP70 >/dev/null 2>&1
-  oc create -n openshift -f $TEMPLATE_EAP70
-	
-	if [ $? -ne 0 ]; then
-		echo "Failed again, exiting, check output messages and network connectivity before running install again..."
-		echo
-		docker-machine rm -f openshift
-		exit
-	fi
-fi
+#if [ $? -ne 0 ]; then
+#	echo
+#	echo "Problem with accessing JBoss EAP 70 template for OCP..."
+#	echo
+ # echo "Trying again..."
+#	echo
+#	sleep 10
+#	oc delete -n openshift -f $TEMPLATE_EAP70 >/dev/null 2>&1
+ # oc create -n openshift -f $TEMPLATE_EAP70
+#	
+#	if [ $? -ne 0 ]; then
+#		echo "Failed again, exiting, check output messages and network connectivity before running install again..."
+#		echo
+#		docker-machine rm -f openshift
+#		exit
+#	fi
+#fi
 
 # Updating EAP 7.1 template.
 #
