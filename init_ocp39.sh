@@ -71,7 +71,7 @@ if [ `uname` == 'Darwin' ]; then
 		echo "VirtualBox is installed..."
 		echo
 elif [ `uname` == 'Linux' ]; then
-		VIRT_DRIVER='kvm'
+		VIRT_DRIVER='virtualbox'
     echo "You are running on Linux."
     echo "This script assumes you are going to use KVM on Linux."
     echo "You'll need to install docker-machine and docker-machine-driver-kvm in your \$PATH manually."
